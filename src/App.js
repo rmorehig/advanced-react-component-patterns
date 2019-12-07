@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Usage from './components/Toggle'
+import Usage from './components/ToggleCompoundComponents'
 
 function App() {
   return (
