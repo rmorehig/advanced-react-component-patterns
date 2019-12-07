@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Usage from './components/ToggleCompoundComponents'
+import Usage from './components/ToggleFlexibleCompoundComponents'
 
 function App() {
   return (
