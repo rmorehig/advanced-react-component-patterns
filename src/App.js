@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Usage from './components/ToggleFlexibleCompoundComponents'
+import Usage from './components/Toggle-04'
 
 function App() {
   return (
@@ -8,7 +8,8 @@ function App() {
       style={{
         height: '100vh',
         flex: 1,
-        display: 'grid',
+        display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
       }}
