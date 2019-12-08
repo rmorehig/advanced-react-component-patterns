@@ -12,7 +12,7 @@ class Switch extends React.Component {
       .filter(Boolean)
       .join(' ')
     return (
-      <div style={{padding: '1rem'}}>
+      <div>
         <input
           className="toggle-input"
           type="checkbox"
