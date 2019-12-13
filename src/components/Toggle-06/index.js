@@ -6,29 +6,34 @@ const Toggle = props => {
   const toggle = () => {
     setOn(!on)
   }
+  const getStateAndHelpers = () => {
+    return {
+      on,
+      toggle,
+      togglerProps: {
+        onClick: toggle,
+        'aria-pressed': on,
+      },
+    }
+  }
   useEffect(() => {
     props.onToggle(on)
   }, [on, props])
 
-  return props.children({on, toggle})
+  return props.children(getStateAndHelpers())
 }
 
-const CommonToggle = props => (
-  <Toggle {...props}>
-    {({on, toggle}) => <Switch on={on} onClick={toggle} />}
-  </Toggle>
-)
 function Usage({
   onToggle = (...args) => console.log('onToggle', ...args),
 }) {
   return (
     <Toggle onToggle={onToggle}>
-      {({on, toggle}) => (
+      {({on, togglerProps}) => (
         <div>
           {on ? 'The button is on' : 'The button is off'}
-          <Switch on={on} onClick={toggle} />
+          <Switch on={on} {...togglerProps} />
           <hr />
-          <button aria-label="custom-button" onClick={toggle}>
+          <button aria-label="custom-button" {...togglerProps}>
             {on ? 'on' : 'off'}
           </button>
         </div>
@@ -36,6 +41,6 @@ function Usage({
     </Toggle>
   )
 }
-Usage.title = 'Render props'
+Usage.title = 'Props collections'
 
 export {Toggle, Usage as default}
